@@ -1,0 +1,280 @@
+[
+    {
+        "id": "2e61597e.c59a46",
+        "type": "mihome",
+        "z": "c67ae013.41d24",
+        "name": "mihome",
+        "x": 293.2143249511719,
+        "y": 116.71442031860352,
+        "wires": [
+            [
+                "e80f481d.8247a8"
+            ]
+        ]
+    },
+    {
+        "id": "e80f481d.8247a8",
+        "type": "debug",
+        "z": "c67ae013.41d24",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 487.2143096923828,
+        "y": 117.14301872253418,
+        "wires": []
+    },
+    {
+        "id": "3f177268.815dde",
+        "type": "ui_button",
+        "z": "c67ae013.41d24",
+        "name": "",
+        "group": "e3c4ddb1.1f891",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Group A On",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "{\"command\":\"group_on\", \"objid\":\"49119\"}",
+        "payloadType": "json",
+        "topic": "",
+        "x": 99.21430206298828,
+        "y": 81.28583717346191,
+        "wires": [
+            [
+                "2e61597e.c59a46"
+            ]
+        ]
+    },
+    {
+        "id": "535e2b32.a58f34",
+        "type": "ui_button",
+        "z": "c67ae013.41d24",
+        "name": "",
+        "group": "e3c4ddb1.1f891",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Group A Off",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "{\"command\":\"group_off\", \"objid\":\"49119\"}",
+        "payloadType": "json",
+        "topic": "",
+        "x": 96.00003051757812,
+        "y": 141.0001516342163,
+        "wires": [
+            [
+                "2e61597e.c59a46"
+            ]
+        ]
+    },
+    {
+        "id": "19468814.79c9b8",
+        "type": "mihome",
+        "z": "c67ae013.41d24",
+        "name": "mihome",
+        "x": 309.2142906188965,
+        "y": 312.0000295639038,
+        "wires": [
+            [
+                "ec89b7a5.ce5f28"
+            ]
+        ]
+    },
+    {
+        "id": "ec89b7a5.ce5f28",
+        "type": "debug",
+        "z": "c67ae013.41d24",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 493.2143096923828,
+        "y": 311.42860221862793,
+        "wires": []
+    },
+    {
+        "id": "94ef894e.be2aa8",
+        "type": "ui_button",
+        "z": "c67ae013.41d24",
+        "name": "",
+        "group": "94975c1b.aacab",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Fan On",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "{\"command\":\"subdevice_on\", \"objid\":\"65479\"}",
+        "payloadType": "json",
+        "topic": "",
+        "x": 91.21427154541016,
+        "y": 279.5714359283447,
+        "wires": [
+            [
+                "19468814.79c9b8"
+            ]
+        ]
+    },
+    {
+        "id": "18d3c5af.b5404a",
+        "type": "ui_button",
+        "z": "c67ae013.41d24",
+        "name": "",
+        "group": "94975c1b.aacab",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Fan Off",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "{\"command\":\"subdevice_off\", \"objid\":\"65479\"}",
+        "payloadType": "json",
+        "topic": "",
+        "x": 90,
+        "y": 339.2857332229614,
+        "wires": [
+            [
+                "19468814.79c9b8"
+            ]
+        ]
+    },
+    {
+        "id": "60b58bb6.5b6444",
+        "type": "inject",
+        "z": "c67ae013.41d24",
+        "name": "Fan Power History",
+        "topic": "",
+        "payload": "{\"command\":\"subdevice_info\", \"objid\":\"65479\"}",
+        "payloadType": "json",
+        "repeat": "60",
+        "crontab": "",
+        "once": false,
+        "x": 125.21427917480469,
+        "y": 433.57143783569336,
+        "wires": [
+            [
+                "d97abf60.f44ea"
+            ]
+        ]
+    },
+    {
+        "id": "d97abf60.f44ea",
+        "type": "mihome",
+        "z": "c67ae013.41d24",
+        "name": "mihome",
+        "x": 306,
+        "y": 433.9999694824219,
+        "wires": [
+            [
+                "b404b787.a10038",
+                "812ae700.a66b38"
+            ]
+        ]
+    },
+    {
+        "id": "b404b787.a10038",
+        "type": "debug",
+        "z": "c67ae013.41d24",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 476.9999694824219,
+        "y": 433.9999694824219,
+        "wires": []
+    },
+    {
+        "id": "ba577e3a.d70ee",
+        "type": "ui_chart",
+        "z": "c67ae013.41d24",
+        "name": "fan-power-history",
+        "group": "94975c1b.aacab",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "label": "Fan Power History",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "x": 369.2143249511719,
+        "y": 627.8572273254395,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "812ae700.a66b38",
+        "type": "function",
+        "z": "c67ae013.41d24",
+        "name": "get real power",
+        "func": "var real_power;\n\n//info=JSON.parse(msg.payload);\nreal_power=msg.payload.data.real_power;\nmsg.payload=real_power;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 310.21431732177734,
+        "y": 554.7143363952637,
+        "wires": [
+            [
+                "ba577e3a.d70ee"
+            ]
+        ]
+    },
+    {
+        "id": "e3c4ddb1.1f891",
+        "type": "ui_group",
+        "z": "",
+        "name": "Group A",
+        "tab": "8c04a018.e2254",
+        "disp": true,
+        "width": "4"
+    },
+    {
+        "id": "94975c1b.aacab",
+        "type": "ui_group",
+        "z": "",
+        "name": "Room 01",
+        "tab": "8c04a018.e2254",
+        "disp": true,
+        "width": "4"
+    },
+    {
+        "id": "8c04a018.e2254",
+        "type": "ui_tab",
+        "z": "",
+        "name": "HAL 9000",
+        "icon": "dashboard",
+        "order": "1"
+    }
+]
