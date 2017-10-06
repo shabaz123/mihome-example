@@ -1,11 +1,11 @@
 [
     {
-        "id": "2ff56541.d70a4a",
+        "id": "68c1d1d6.4bf85",
         "type": "ui_text_input",
-        "z": "109f12cc.cbc6dd",
+        "z": "1c073460.bb7a1c",
         "name": "",
         "label": "email",
-        "group": "a8de1dcf.efd33",
+        "group": "daae0c07.49b11",
         "order": 2,
         "width": 0,
         "height": 0,
@@ -13,21 +13,21 @@
         "mode": "email",
         "delay": "300",
         "topic": "email",
-        "x": 122.21429443359375,
-        "y": 200.42859268188477,
+        "x": 132,
+        "y": 138,
         "wires": [
             [
-                "daa028a9.a48778"
+                "68de8cd4.3081c4"
             ]
         ]
     },
     {
-        "id": "90490e38.4dedf",
+        "id": "9c56fd06.4222d",
         "type": "ui_text_input",
-        "z": "109f12cc.cbc6dd",
+        "z": "1c073460.bb7a1c",
         "name": "",
         "label": "password",
-        "group": "a8de1dcf.efd33",
+        "group": "daae0c07.49b11",
         "order": 3,
         "width": 0,
         "height": 0,
@@ -35,20 +35,20 @@
         "mode": "password",
         "delay": "300",
         "topic": "pw",
-        "x": 134.99999237060547,
-        "y": 241.99998474121094,
+        "x": 144.78569793701172,
+        "y": 179.57139205932617,
         "wires": [
             [
-                "daa028a9.a48778"
+                "68de8cd4.3081c4"
             ]
         ]
     },
     {
-        "id": "627b647b.1f041c",
+        "id": "5858d24c.74c73c",
         "type": "ui_button",
-        "z": "109f12cc.cbc6dd",
+        "z": "1c073460.bb7a1c",
         "name": "",
-        "group": "a8de1dcf.efd33",
+        "group": "daae0c07.49b11",
         "order": 4,
         "width": 0,
         "height": 0,
@@ -60,21 +60,21 @@
         "payload": "ok",
         "payloadType": "str",
         "topic": "ok",
-        "x": 119.21427917480469,
-        "y": 289.42866611480713,
+        "x": 128.99998474121094,
+        "y": 227.00007343292236,
         "wires": [
             [
-                "daa028a9.a48778"
+                "68de8cd4.3081c4"
             ]
         ]
     },
     {
-        "id": "bfa5b816.4abbe8",
+        "id": "4e8e371e.5cafa8",
         "type": "ui_text_input",
-        "z": "109f12cc.cbc6dd",
+        "z": "1c073460.bb7a1c",
         "name": "",
         "label": "PIN",
-        "group": "a8de1dcf.efd33",
+        "group": "daae0c07.49b11",
         "order": 1,
         "width": 0,
         "height": 0,
@@ -82,68 +82,68 @@
         "mode": "password",
         "delay": 300,
         "topic": "pin",
-        "x": 113.21427917480469,
-        "y": 156.42860221862793,
+        "x": 122.99998474121094,
+        "y": 94.00000953674316,
         "wires": [
             [
-                "daa028a9.a48778"
+                "68de8cd4.3081c4"
             ]
         ]
     },
     {
-        "id": "daa028a9.a48778",
+        "id": "68de8cd4.3081c4",
         "type": "function",
-        "z": "109f12cc.cbc6dd",
+        "z": "1c073460.bb7a1c",
         "name": "invoke_get_key",
         "func": "if (msg.topic=='email')\n{\n    context.set('email', msg.payload);\n    msg.payload='null';\n}\nif (msg.topic=='pw')\n{\n    context.set('pw', msg.payload);\n    msg.payload='null';\n}\nif (msg.topic=='pin')\n{\n    context.set('pin', msg.payload);\n    msg.payload='null';\n}\n\nif (msg.topic=='ok')\n{\n    if (context.get('pin')=='1234')\n    {\n      msg.payload = {};\n      msg.payload.command='get_key';\n      msg.payload.email=context.get('email');\n      msg.payload.pw=context.get('pw');\n    }\n    else\n    {\n        msg.payload = {};\n        msg.payload.command='bad_pin';\n    }\n    context.set('pw', 'null');\n    context.set('pin', 'null');\n}\nelse\n{\n    msg.payload=\"null\";\n}\nreturn msg;\n",
         "outputs": 1,
         "noerr": 0,
-        "x": 388.21434020996094,
-        "y": 232.71437740325928,
+        "x": 398.0000457763672,
+        "y": 170.2857847213745,
         "wires": [
             [
-                "6bc77dba.5f1094",
-                "7cfbf56d.d62dcc"
+                "412da05.f5a546",
+                "7dad1c2c.750d64"
             ]
         ]
     },
     {
-        "id": "a0c8bbfa.670068",
+        "id": "7695073f.dfdeb8",
         "type": "mihome",
-        "z": "109f12cc.cbc6dd",
+        "z": "1c073460.bb7a1c",
         "name": "",
-        "x": 857.2143020629883,
-        "y": 230.71437072753906,
+        "x": 867.0000076293945,
+        "y": 168.2857780456543,
         "wires": [
             [
-                "b5abef99.bc676",
-                "28daaa32.49da06"
+                "fa8c4602.f90218",
+                "edcf332d.59dba"
             ]
         ]
     },
     {
-        "id": "5f68c036.a3593",
+        "id": "7813e917.c64818",
         "type": "function",
-        "z": "109f12cc.cbc6dd",
+        "z": "1c073460.bb7a1c",
         "name": "eraser",
         "func": "msg.payload = \"\";\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 462.2142791748047,
-        "y": 429.0000886917114,
+        "x": 471.99998474121094,
+        "y": 366.57149600982666,
         "wires": [
             [
-                "90490e38.4dedf",
-                "2ff56541.d70a4a",
-                "bfa5b816.4abbe8",
-                "627b647b.1f041c"
+                "9c56fd06.4222d",
+                "68c1d1d6.4bf85",
+                "4e8e371e.5cafa8",
+                "5858d24c.74c73c"
             ]
         ]
     },
     {
-        "id": "6bc77dba.5f1094",
+        "id": "412da05.f5a546",
         "type": "switch",
-        "z": "109f12cc.cbc6dd",
+        "z": "1c073460.bb7a1c",
         "name": "form-complete",
         "property": "payload.command",
         "propertyType": "msg",
@@ -156,19 +156,19 @@
         ],
         "checkall": "true",
         "outputs": 1,
-        "x": 612.2143630981445,
-        "y": 231.71430206298828,
+        "x": 622.0000686645508,
+        "y": 169.28570938110352,
         "wires": [
             [
-                "a0c8bbfa.670068",
-                "5f68c036.a3593"
+                "7695073f.dfdeb8",
+                "7813e917.c64818"
             ]
         ]
     },
     {
-        "id": "7cfbf56d.d62dcc",
+        "id": "7dad1c2c.750d64",
         "type": "switch",
-        "z": "109f12cc.cbc6dd",
+        "z": "1c073460.bb7a1c",
         "name": "bad-pin",
         "property": "payload.command",
         "propertyType": "msg",
@@ -181,31 +181,31 @@
         ],
         "checkall": "true",
         "outputs": 1,
-        "x": 465.71426010131836,
-        "y": 297.00000286102295,
+        "x": 475.4999656677246,
+        "y": 234.57141017913818,
         "wires": [
             [
-                "5f68c036.a3593"
+                "7813e917.c64818"
             ]
         ]
     },
     {
-        "id": "e874ae35.7f5cd",
+        "id": "7799840c.8af5cc",
         "type": "file",
-        "z": "109f12cc.cbc6dd",
+        "z": "1c073460.bb7a1c",
         "name": "key.json",
         "filename": "key.json",
         "appendNewline": true,
         "createDir": false,
         "overwriteFile": "true",
-        "x": 1049.9285926818848,
-        "y": 340.8572940826416,
+        "x": 1059.714298248291,
+        "y": 278.42870140075684,
         "wires": []
     },
     {
-        "id": "b5abef99.bc676",
+        "id": "fa8c4602.f90218",
         "type": "switch",
-        "z": "109f12cc.cbc6dd",
+        "z": "1c073460.bb7a1c",
         "name": "sanity check",
         "property": "payload",
         "propertyType": "msg",
@@ -218,33 +218,33 @@
         ],
         "checkall": "true",
         "outputs": 1,
-        "x": 875.0000305175781,
-        "y": 339.99997329711914,
+        "x": 884.7857360839844,
+        "y": 277.5713806152344,
         "wires": [
             [
-                "e874ae35.7f5cd",
-                "28daaa32.49da06"
+                "7799840c.8af5cc",
+                "edcf332d.59dba"
             ]
         ]
     },
     {
-        "id": "28daaa32.49da06",
+        "id": "edcf332d.59dba",
         "type": "debug",
-        "z": "109f12cc.cbc6dd",
+        "z": "1c073460.bb7a1c",
         "name": "",
         "active": true,
         "console": "false",
         "complete": "false",
-        "x": 1060.214340209961,
-        "y": 165.1428680419922,
+        "x": 1070.0000457763672,
+        "y": 102.71427536010742,
         "wires": []
     },
     {
-        "id": "c02ab66c.e9d518",
+        "id": "cbbbf68c.e80b88",
         "type": "ui_button",
-        "z": "109f12cc.cbc6dd",
+        "z": "1c073460.bb7a1c",
         "name": "",
-        "group": "a8de1dcf.efd33",
+        "group": "daae0c07.49b11",
         "order": 4,
         "width": 0,
         "height": 0,
@@ -256,63 +256,63 @@
         "payload": "ok",
         "payloadType": "str",
         "topic": "ok",
-        "x": 142.99999237060547,
-        "y": 509.9999694824219,
+        "x": 152.78569793701172,
+        "y": 447.5713768005371,
         "wires": [
             [
-                "889e8b5a.5e2bc8"
+                "89a74599.453cd8"
             ]
         ]
     },
     {
-        "id": "889e8b5a.5e2bc8",
+        "id": "89a74599.453cd8",
         "type": "function",
-        "z": "109f12cc.cbc6dd",
+        "z": "1c073460.bb7a1c",
         "name": "get device list",
         "func": "msg.payload={\"command\":\"get_subdevice_list\"};\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 363.2142791748047,
-        "y": 512.7142944335938,
+        "x": 372.99998474121094,
+        "y": 450.285701751709,
         "wires": [
             [
-                "1e8d768d.6624f9"
+                "c0dd0a01.f0b7b8"
             ]
         ]
     },
     {
-        "id": "1e8d768d.6624f9",
+        "id": "c0dd0a01.f0b7b8",
         "type": "mihome",
-        "z": "109f12cc.cbc6dd",
+        "z": "1c073460.bb7a1c",
         "name": "",
-        "x": 570.8571166992188,
-        "y": 513,
+        "x": 580.642822265625,
+        "y": 450.57140731811523,
         "wires": [
             [
-                "213f1fc8.75e12"
+                "8c222265.2ebec"
             ]
         ]
     },
     {
-        "id": "213f1fc8.75e12",
+        "id": "8c222265.2ebec",
         "type": "function",
-        "z": "109f12cc.cbc6dd",
+        "z": "1c073460.bb7a1c",
         "name": "brief list",
         "func": "var res='{';\nvar label;\nvar id;\nvar i=0;\n\nfor (i in msg.payload.data) {\n    label=msg.payload.data[i].label;\n    id=msg.payload.data[i].id;\n    if (i>0)\n    {\n          res+=', ';\n    }\n    res+='\"'+label+'\":\"'+id+'\"';\n    i++;\n}\nres+='}';\nmsg.payload='{}';\nmsg.payload=res;\nreturn msg;\n",
         "outputs": 1,
         "noerr": 0,
-        "x": 738.7857627868652,
-        "y": 512.7143383026123,
+        "x": 748.5714683532715,
+        "y": 450.28574562072754,
         "wires": [
             [
-                "418bdd88.c58144"
+                "f7f2f562.4db248"
             ]
         ]
     },
     {
-        "id": "418bdd88.c58144",
+        "id": "f7f2f562.4db248",
         "type": "ui_toast",
-        "z": "109f12cc.cbc6dd",
+        "z": "1c073460.bb7a1c",
         "position": "top right",
         "displayTime": "10",
         "highlight": "",
@@ -321,24 +321,24 @@
         "cancel": "",
         "topic": "",
         "name": "show list of devices",
-        "x": 932.7858467102051,
-        "y": 513.8571996688843,
+        "x": 942.5715522766113,
+        "y": 451.4286069869995,
         "wires": []
     },
     {
-        "id": "a8de1dcf.efd33",
+        "id": "daae0c07.49b11",
         "type": "ui_group",
         "z": "",
         "name": "Admin",
-        "tab": "8c04a018.e2254",
+        "tab": "5523884e.92b178",
         "disp": true,
         "width": "6"
     },
     {
-        "id": "8c04a018.e2254",
+        "id": "5523884e.92b178",
         "type": "ui_tab",
         "z": "",
-        "name": "HAL 9000",
+        "name": "Admin",
         "icon": "dashboard",
         "order": "1"
     }
