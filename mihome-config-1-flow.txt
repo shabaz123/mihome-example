@@ -269,7 +269,7 @@
         "type": "function",
         "z": "109f12cc.cbc6dd",
         "name": "get device list",
-        "func": "msg.payload.command='get_device_list';\nreturn msg;",
+        "func": "msg.payload={\"command\":\"get_subdevice_list\"};\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 363.2142791748047,
