@@ -1,0 +1,106 @@
+[
+    {
+        "id": "8b67556c.d02fb8",
+        "type": "rpi-gpio in",
+        "z": "efea420b.1356c",
+        "name": "dark_detect",
+        "pin": "7",
+        "intype": "tri",
+        "debounce": "25",
+        "read": false,
+        "x": 208.2142791748047,
+        "y": 380.1428966522217,
+        "wires": [
+            [
+                "7166f8e6.c5eb88",
+                "55be94ea.30f88c"
+            ]
+        ]
+    },
+    {
+        "id": "84d08205.1ca8b",
+        "type": "exec",
+        "z": "efea420b.1356c",
+        "command": "/home/pi/set_bright.sh",
+        "addpay": false,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "set_bright",
+        "x": 617.2143249511719,
+        "y": 418.5001621246338,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "4235a19.05b0b6",
+        "type": "exec",
+        "z": "efea420b.1356c",
+        "command": "/home/pi/set_dim.sh",
+        "addpay": false,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "set_dim",
+        "x": 620.0001220703125,
+        "y": 336,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "7166f8e6.c5eb88",
+        "type": "switch",
+        "z": "efea420b.1356c",
+        "name": "is_dark",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 1,
+        "x": 417.2142906188965,
+        "y": 335.28581714630127,
+        "wires": [
+            [
+                "4235a19.05b0b6"
+            ]
+        ]
+    },
+    {
+        "id": "55be94ea.30f88c",
+        "type": "switch",
+        "z": "efea420b.1356c",
+        "name": "is_bright",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 1,
+        "x": 412.9999694824219,
+        "y": 419.9999752044678,
+        "wires": [
+            [
+                "84d08205.1ca8b"
+            ]
+        ]
+    }
+]
